@@ -37,6 +37,7 @@ namespace Sprocket_Blueprint_Editor
         public dynamic TankJsonData;
         private HullForm hullForm;
         private TurretForm turretForm;
+        private CrewForm crewForm;
 
         public Form1()
         {
@@ -135,6 +136,13 @@ namespace Sprocket_Blueprint_Editor
         private void btnCrewData_Click(object sender, EventArgs e)
         {
 
+            if (crewForm != null)
+            {
+                crewForm.Close();
+            }
+            crewForm = new CrewForm(this);
+
+            crewForm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -147,6 +155,10 @@ namespace Sprocket_Blueprint_Editor
             if (turretForm != null)
             {
                 turretForm.LoadTurret();
+            }
+            if (crewForm != null)
+            {
+                crewForm.LoadCrew();
             }
         }
 
